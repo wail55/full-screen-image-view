@@ -3,6 +3,6 @@
 
     <application>
         <activity android:name=".FullScreenImageViewActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+            android:theme="@style/Theme.Light.NoActionBar.FullScreen"/>
     </application>
 </manifest>

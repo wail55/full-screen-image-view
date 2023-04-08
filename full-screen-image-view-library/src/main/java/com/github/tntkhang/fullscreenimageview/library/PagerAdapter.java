@@ -1,6 +1,7 @@
 package com.github.tntkhang.fullscreenimageview.library;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +14,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 class PagerAdapter extends FragmentStateAdapter {
 
-    private final List<Uri> imagesUri = new ArrayList<>();
+    private final List<Uri> imagesUri;
 
-    PagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<String> images, @NonNull Lifecycle lifecycle) {
+    PagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<Uri> images, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
-        for (String image : images) {
-            this.imagesUri.add(Uri.parse(image));
-        }
+        this.imagesUri=images;
+
     }
 
     @NonNull

@@ -2,7 +2,10 @@ package com.github.tntkhang.fullscreenimageview.library;
 
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +16,8 @@ public class ImageFragment extends Fragment {
     private Uri uri;
     private static final String EXTRA_URI = "EXTRA_URI";
 
-    public static ImageFragment newInstance(Uri uri) {
+    @NonNull
+    public static ImageFragment newInstance(@NonNull Uri uri) {
         ImageFragment fragment = new ImageFragment();
         Bundle args = new Bundle();
         args.putString(EXTRA_URI, uri.toString());
@@ -22,7 +26,7 @@ public class ImageFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         if (getArguments() != null) {
@@ -35,7 +39,8 @@ public class ImageFragment extends Fragment {
         if (view instanceof TouchImageView) {
             Glide.with(this)
                     .load(uri)
-                    .into((TouchImageView)view);
+                    .placeholder(android.R.drawable.stat_notify_error)
+                    .into((TouchImageView) view);
         }
 
         return view;
