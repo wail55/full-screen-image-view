@@ -1,1 +1,1 @@
-include ':app', ':full-screen-image-view-library'
+include ':full-screen-image-view-library'
